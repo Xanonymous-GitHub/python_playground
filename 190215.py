@@ -1,1 +1,0 @@
-print("%3d".format(12))
