@@ -1,9 +1,15 @@
 def main():
     data = list(map(int, input().split()))
-    items = list(set(data))
     amount = list()
-    for item in items:
-        amount.append(data.count(item))
+    last = data[0]
+    tmp_amount = 0
+    for x in data:
+        if x == last:
+            tmp_amount += 1
+        else:
+            amount.append(tmp_amount)
+            tmp_amount = 1
+        last = x
     print(max(amount))
 
 
