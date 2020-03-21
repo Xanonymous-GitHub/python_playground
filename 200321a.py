@@ -1,9 +1,8 @@
-import matplotlib.image as mpimg
-import matplotlib.pyplot as plt
+from matplotlib import image as mp_img, pyplot as plt
 
 
 def to_gray(img):
-    img[:, :, 0] = img[:, :, 1] = img[:, :, 2]
+    img[..., 0] = img[..., 1] = img[..., 2]
     return img
 
 
@@ -17,7 +16,7 @@ def to_yellow(img):
 
 def main():
     img_path = "/Users/xanonymous/Downloads/90176421_169661774005231_9103801027802431488_n.jpg"
-    img = mpimg.imread(img_path).copy()
+    img = mp_img.imread(img_path).copy()
     plt.imshow(to_yellow(img.copy()))
     plt.axis("off")
     plt.show()
