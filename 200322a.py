@@ -1,6 +1,13 @@
+def gcd(m, n):
+    if n == 0:
+        return m
+    else:
+        return gcd(n, m % n)
+
+
 def main():
     n, m = list(map(int, input().split()))
-    print((gcd := lambda _m, _n: _m if _n == 0 else gcd(_n, _m % _n))(m, n))
+    print(gcd(m, n))
 
 
 if __name__ == '__main__':
