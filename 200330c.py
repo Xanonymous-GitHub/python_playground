@@ -1,3 +1,10 @@
+def levels(n):
+    result = 1
+    for x in range(1, n + 1):
+        result *= x
+    return result
+
+
 def comb(n, m):
     if m > n:
         return 0
@@ -6,7 +13,7 @@ def comb(n, m):
     m = min(m, abs(m - n))
     if m == 1:
         return n
-    return sum([comb(n - i - 1, m - 1) for i in range(n - m + 1)])
+    return int(levels(n) / (levels(m) * levels(n - m)))
 
 
 def main():
