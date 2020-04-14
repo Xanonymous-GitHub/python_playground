@@ -1,6 +1,6 @@
 def string_handler(words: str) -> str:
     length = len(words)
-    pos = int(length / 2)
+    pos = length // 2
     left = words[:pos]
     right = words[pos + 1 if length % 2 else pos::][::-1]
     return "yes" if left == right else "no"
