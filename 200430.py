@@ -34,14 +34,29 @@ class LinkedList:
         new_node.next = current
         previous.next = new_node
 
+    def find_node(self, expected_target) -> int:
+        current = self.head.next
+        position = 1
+        while current is not None:
+            if current.data != expected_target:
+                current = current.next
+            else:
+                return position
+            position += 1
+        return 0
+
 
 def main():
     user_input = input().split()
     link_list_1 = LinkedList()
     for element in user_input[::-1]:
-        link_list_1.add_with_sorted(element)
-    index = int(input())
-    print(link_list_1.get_node_data(index))
+        link_list_1.insert_on_head(element)
+        # You can also use this
+        # link_list_1.add_with_sorted(element)
+        # but remember to remove the [::-1] above.
+    expected_target = input()
+    # if exist, you will get the position(not index) of the target you want to find.
+    print(link_list_1.find_node(expected_target))
 
 
 if __name__ == '__main__':
