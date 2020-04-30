@@ -24,12 +24,22 @@ class LinkedList:
             index_ -= 1
         return current.data
 
+    def add_with_sorted(self, element):
+        previous = self.head
+        current = self.head.next
+        while current is not None and current.data <= element:
+            previous = current
+            current = current.next
+        new_node = Node(element)
+        new_node.next = current
+        previous.next = new_node
+
 
 def main():
     user_input = input().split()
     link_list_1 = LinkedList()
     for element in user_input[::-1]:
-        link_list_1.insert_on_head(element)
+        link_list_1.add_with_sorted(element)
     index = int(input())
     print(link_list_1.get_node_data(index))
 
