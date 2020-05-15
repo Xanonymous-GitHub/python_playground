@@ -5,7 +5,7 @@ class Node:
 
 
 class LinkedList:
-    def __init__(self, data: str, _generic_type: type = int):
+    def __init__(self, data: str, _generic_type: type = str):
         self.head = Node()
         self.generic_type = _generic_type
         data_list = list(map(self.generic_type, data.split()))
@@ -46,8 +46,8 @@ class LinkedList:
 
 def main():
     # create a new linked list object with data and (maybe) a specific data type (generic).
-    # default type will be 'int', but we use 'str' here, that means our linked list is str type.
-    linked_list = LinkedList(input(), str)
+    # default type will be 'str', in this set, you can type anything that you want to add to linked list.
+    linked_list = LinkedList(input())
 
     # remove every matched value inside the linked list.
     # warring: notice the inputted data type is str, not exactly match to your linked list type.
