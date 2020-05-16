@@ -38,6 +38,16 @@ class LinkedList:
             current_node = current_node.next
         return result
 
+    def invert(self):
+        forward = self.head.next
+        current = None
+        while forward is not None:
+            previous = current
+            current = forward
+            forward = forward.next
+            current.next = previous
+        self.head.next = current
+
     def __str__(self):
         return ' '.join(map(str, self.__raw))
 
@@ -52,6 +62,12 @@ def main():
     # remove every matched value inside the linked list.
     # warring: notice the inputted data type is str, not exactly match to your linked list type.
     linked_list.remove_specific_value(input())
+
+    # show the linked list.
+    print(linked_list)
+
+    # invert the linked list
+    linked_list.invert()
 
     # show the linked list.
     print(linked_list)
